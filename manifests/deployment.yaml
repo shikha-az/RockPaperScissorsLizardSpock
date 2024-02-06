@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-workflow
+  labels:
+    app: new-workflow
+  namespace: demo-child
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: new-workflow
+  template:
+    metadata:
+      labels:
+        app: new-workflow
+    spec:
+      containers:
+        - name: new-workflow
+          image: publicacrshikha.azurecr.io/image-workflow-1707249604697:latest
+          ports:
+            - containerPort: 5000
