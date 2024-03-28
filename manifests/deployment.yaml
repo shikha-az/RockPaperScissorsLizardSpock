@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autodeploytest
+  labels:
+    app: autodeploytest
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autodeploytest
+  template:
+    metadata:
+      labels:
+        app: autodeploytest
+    spec:
+      containers:
+        - name: autodeploytest
+          image: testingtemp.azurecr.io/image-workflow-1706564585636:latest
+          ports:
+            - containerPort: 5000
