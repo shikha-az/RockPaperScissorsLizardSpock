@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Rock
+  labels:
+    app: Rock
+  namespace: namespace-workflow-1714426518408
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Rock
+  template:
+    metadata:
+      labels:
+        app: Rock
+    spec:
+      containers:
+        - name: Rock
+          image: acrworkflow1714426518408.azurecr.io/image-workflow-1714426518408:latest
+          ports:
+            - containerPort: 5000

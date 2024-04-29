@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Rock
+  namespace: namespace-workflow-1714426518408
+spec:
+  type: LoadBalancer
+  selector:
+    app: Rock
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
