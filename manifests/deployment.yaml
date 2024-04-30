@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rockpaperwf
+  labels:
+    app: rockpaperwf
+  namespace: namespace-workflow-1714494520795
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rockpaperwf
+  template:
+    metadata:
+      labels:
+        app: rockpaperwf
+    spec:
+      containers:
+        - name: rockpaperwf
+          image: acrworkflow1714494520795.azurecr.io/image-workflow-1714494520795:latest
+          ports:
+            - containerPort: 5000
