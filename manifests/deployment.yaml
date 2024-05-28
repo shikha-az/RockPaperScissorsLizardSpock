@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rockpaperwf
+  name: shikhawf
   labels:
-    app: rockpaperwf
-  namespace: namespace-workflow-1714494520795
+    app: shikhawf
+    kubernetes.azure.com/generator: devhub
+  namespace: demotest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rockpaperwf
+      app: shikhawf
   template:
     metadata:
       labels:
-        app: rockpaperwf
+        app: shikhawf
     spec:
       containers:
-        - name: rockpaperwf
-          image: acrworkflow1714494520795.azurecr.io/image-workflow-1714494520795:latest
+        - name: shikhawf
+          image: acrworkflow1716915490799.azurecr.io/image-workflow-1716915490799:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
