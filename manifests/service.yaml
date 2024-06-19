@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rockpaperwf
-  namespace: namespace-workflow-1714494520795
+  name: Demo
+  namespace: namespace-workflow-1718839792328
+  labels:
+    kubernetes.azure.com/generator: devhub
 spec:
   type: LoadBalancer
   selector:
-    app: rockpaperwf
+    app: Demo
   ports:
     - protocol: TCP
       port: 5000
