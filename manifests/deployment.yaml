@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rockpaperwf
+  name: demo1
   labels:
-    app: rockpaperwf
-  namespace: namespace-workflow-1714494520795
+    app: demo1
+    kubernetes.azure.com/generator: devhub
+  namespace: namespace-workflow-1718912158688
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rockpaperwf
+      app: demo1
   template:
     metadata:
       labels:
-        app: rockpaperwf
+        app: demo1
     spec:
       containers:
-        - name: rockpaperwf
-          image: acrworkflow1714494520795.azurecr.io/image-workflow-1714494520795:latest
+        - name: demo1
+          image: acrworkflow1718912158688.azurecr.io/image-workflow-1718912158688:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
